@@ -1,4 +1,5 @@
 const User = require('../models/userModel');
+const crypto = require('crypto');
 const catchAsync = require('../utils/catchAsync');
 const { promisify } = require('util');
 const jwt = require('jsonwebtoken');
@@ -173,7 +174,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     // SEND TOKEN VIA EMAIL
     const resetUrl = `${req.protocol}://${req.get(
       'host'
-    )}/api/v1/user/resetPassword/${resetToken}`;
+    )}/api/v1/users/resetPassword/${resetToken}`;
     await new Email(user, resetUrl).sendPasswordReset();
 
     res.status(200).json({
@@ -194,6 +195,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     .createHash('sha256')
     .update(req.params.token)
     .digest('hex');
+
   const user = await User.findOne({
     passwordResetToken: hashedToken,
     passwordResetExpires: { $gt: Date.now() },

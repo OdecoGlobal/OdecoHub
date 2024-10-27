@@ -6,6 +6,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+// app.use(require('express-blocks'));
 
 const userRouter = require('./routes/userRoutes');
 
