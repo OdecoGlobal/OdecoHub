@@ -20,7 +20,7 @@ export default function Hero() {
     },
   ];
   return (
-    <section className="lg:flex max-h-[700]">
+    <section className="lg:flex pt-7 max-h-[700]">
       <div className="px-4">
         <h2 className=" font-black mb-3 text-4xl">
           FIND CLOTHES THAT MATCHES YOUR STYLE
@@ -48,10 +48,10 @@ export default function Hero() {
         </div>
       </div>
       <Image
-        className="lg:hidden"
+        className=" block mx-auto lg:hidden"
         src={heroImageMobile}
-        width={1440}
-        height={663}
+        width={390}
+        height={443}
       />
       <Image
         className="hidden bg-inherit lg:block"
