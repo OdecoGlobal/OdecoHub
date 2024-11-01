@@ -11,20 +11,20 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const navMenu = [
     {
-      name: 'Shop',
-      href: '#',
+      name: 'Home',
+      href: '/',
     },
     {
-      name: 'On Sale',
-      href: '#',
+      name: 'Contact',
+      href: '/contact',
     },
     {
-      name: 'New Arrivals',
-      href: '#',
+      name: 'About',
+      href: '/about',
     },
     {
-      name: 'Brands',
-      href: '#',
+      name: 'Login',
+      href: '/login',
     },
   ];
   const handleMenuOpen = () => setOpenMenu(true);
@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-white w-full justify-between h-fit py-2 px-6 flex lg:hidden ">
+      <nav className="bg-white shadow-slate-300 shadow-sm w-full justify-between h-fit py-2 px-6 flex lg:hidden ">
         {/* MOBILE NAVIGATION */}
 
         <div className="flex items-center">
@@ -85,7 +85,7 @@ export default function Navbar() {
       </nav>
 
       {/* DESKTOP NAV */}
-      <nav className=" hidden lg:flex items-center justify-between bg-white w-full  h-fit py-2 px-6 relative">
+      <nav className=" hidden lg:flex  shadow-slate-300 shadow-sm items-center justify-between bg-white w-full  h-fit py-2 px-6 relative">
         <h1 className="text-black font-sans font-extrabold text-3xl ">
           ODECOHUB
         </h1>

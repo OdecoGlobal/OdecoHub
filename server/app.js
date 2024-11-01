@@ -6,6 +6,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 // app.use(require('express-blocks'));
 
 const AppError = require('./utils/appError');
@@ -15,6 +16,8 @@ const productRouter = require('./routes/productRoutes');
 
 // Initializing the app
 const app = express();
+
+app.use(cors());
 
 // Set security HTTP headers
 app.use(helmet());
