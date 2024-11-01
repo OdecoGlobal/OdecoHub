@@ -19,7 +19,3 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.auth-input {
-  @apply inline-block mb-5 border-b-2 border-b-slate-200 focus:outline-none focus:border-b-green-500;
-}
