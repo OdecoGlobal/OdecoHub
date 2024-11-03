@@ -2,79 +2,164 @@
 import { useState } from 'react';
 import SideImage from '../SideImage';
 import Link from 'next/link';
+import useSignup from '@/app/hooks/useSignup';
+import useValidation from '@/app/hooks/useValidation';
+
+// style
+import '../auth.css';
 
 export default function SignUp() {
+  const {
+    validateField,
+    getInputClassName,
+    renderFieldErrors,
+    getValidationRules,
+  } = useValidation();
   const [name, setName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const { signup, isPending } = useSignup();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    console.log(name, email, userName, password);
+
+    const isFormValid =
+      validateField('name', name, rules.name) &&
+      validateField('userName', userName, rules.userName) &&
+      validateField('email', email, rules.email) &&
+      validateField('password', password, rules.password) &&
+      validateField('confirmPassword', confirmPassword, rules.confirmPassword);
+
+    if (isFormValid) {
+      signup(name, email, userName, password, confirmPassword);
+    }
   };
 
+  // const rules = {
+  //   name: [{ type: 'required' }, { type: 'minLength', value: 3 }],
+  //   userName: [{ type: 'required' }, { type: 'minLength', value: 3 }],
+  //   email: [
+  //     { type: 'required' },
+  //     {
+  //       type: 'pattern',
+  //       value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  //       message: 'Invalid email format',
+  //     },
+  //   ],
+  //   password: [
+  //     { type: 'required' },
+  //     { type: 'minLength', value: 8 },
+  //     {
+  //       type: 'pattern',
+  //       value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/,
+  //       message: 'Password must contain at least one letter and one number',
+  //     },
+  //   ],
+  //   confirmPassword: [
+  //     { type: 'required' },
+  //     {
+  //       type: 'pattern',
+  //       value: new RegExp(`^${password}$`),
+  //       message: 'Passwords do not match',
+  //     },
+  //   ],
+  // };
+
+  const rules = getValidationRules(
+    'name',
+    'userName',
+    'email',
+    'password',
+    'confirmPassword'
+  );
   return (
     <section className="mt-5 lg:mt-10 px-10 pb-4 flex flex-row justify-evenly">
       <SideImage />
       <div>
-        <form
-          className="mt-4 lg:mt-0 flex flex-col px-4"
-          onSubmit={handleSubmit}
-        >
+        <form className="mt-4 lg:mt-0 flex flex-col" onSubmit={handleSubmit}>
           <div className="text-center mb-3">
             <h2 className="font-semibold text-4xl mb-1">Create an account</h2>
             <p className="text-sm">Enter your details below</p>
           </div>
 
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-            required
-            className="auth-input"
-          />
+          <div className="auth-div">
+            <input
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={e => {
+                setName(e.target.value);
+                validateField('name', e.target.value, rules.name);
+              }}
+              className={getInputClassName('name', name)}
+            />
+            {renderFieldErrors('name')}
+          </div>
 
-          <input
-            type="text"
-            placeholder="Username"
-            value={userName}
-            onChange={e => setUserName(e.target.value)}
-            required
-            className="auth-input"
-          />
+          <div className="auth-div">
+            <input
+              type="text"
+              placeholder="Username"
+              value={userName}
+              onChange={e => {
+                setUserName(e.target.value);
+                validateField('userName', e.target.value, rules.userName);
+              }}
+              className={getInputClassName('userName', userName)}
+            />
+            {renderFieldErrors('userName')}
+          </div>
+          <div className="auth-div">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value);
+                validateField('email', e.target.value, rules.email);
+              }}
+              className={getInputClassName('email', email)}
+            />
+            {renderFieldErrors('email')}
+          </div>
+          <div className="auth-div">
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={e => {
+                setPassword(e.target.value);
+                validateField('password', e.target.value, rules.password);
+              }}
+              className={getInputClassName('password', password)}
+            />
+            {renderFieldErrors('password')}
+          </div>
+          <div className="auth-div">
+            <input
+              type="password"
+              placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={e => {
+                setConfirmPassword(e.target.value);
+                validateField(
+                  'confirmPassword',
+                  e.target.value,
+                  rules.confirmPassword
+                );
+              }}
+              className={getInputClassName('confirmPassword', confirmPassword)}
+            />
+            {renderFieldErrors('confirmPassword')}
+          </div>
 
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            className="auth-input"
-          />
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            className="auth-input"
-            required
-          />
-
-          <input
-            type="password"
-            placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={e => setConfirmPassword(e.target.value)}
-            required
-            className="auth-input"
-          />
-
-          <button className=" mt-3 text-center rounded-lg w-full py-2 text-white bg-primary">
-            Create Account
+          <button
+            disabled={isPending}
+            className=" mt-3 text-center rounded-lg w-full py-2 text-white bg-primary"
+          >
+            {isPending ? 'Creating Account...' : 'Create Account'}
           </button>
         </form>
         <p className=" mt-2 text-center text-slate-400">

@@ -1,12 +1,37 @@
 'use client';
+import useForgotPassword from '@/app/hooks/useForgotPassword';
+import useValidation from '@/app/hooks/useValidation';
 import { useState } from 'react';
+
+// style
+import '../auth.css';
 
 export default function Login() {
   const [email, setEmail] = useState('');
+  const { forgotPassword, isPending } = useForgotPassword();
+  const { validateField, getInputClassName, renderFieldErrors } =
+    useValidation();
 
   const handleSubmit = e => {
     e.preventDefault();
     console.log(email);
+    const isFormValid = validateField('email', email, rules.email);
+
+    if (isFormValid) {
+      forgotPassword(email);
+      setEmail('');
+    }
+  };
+
+  const rules = {
+    email: [
+      { type: 'required' },
+      {
+        type: 'pattern',
+        value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        message: 'Invalid email format',
+      },
+    ],
   };
 
   return (
