@@ -3,6 +3,8 @@ node_modules/
 /client/.next
 /client/.pnp
 /client/.pnp.js
+/client/.delete.js
+delete.js*
 /client/.yarn/install-state.gz
 
 # testing

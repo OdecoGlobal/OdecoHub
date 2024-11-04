@@ -1,6 +1,6 @@
 import './globals.css';
 import Navbar from './components/Navbar';
-import { AuthContextProvider } from './context/AuthContext';
+import AuthParams, { AuthContextProvider } from './context/AuthContext';
 
 export const metadata = {
   title: 'Create Next App',
@@ -8,14 +8,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const { authIsReady } = AuthParams;
+
+  console.log(authIsReady);
   return (
-    <html lang="en">
-      <body>
-        <AuthContextProvider>
-          <Navbar />
-          {children}
-        </AuthContextProvider>
-      </body>
-    </html>
+    <AuthContextProvider>
+      <html lang="en">
+        {authIsReady && (
+          <body>
+            <Navbar />
+            {children}
+          </body>
+        )}
+      </html>
+    </AuthContextProvider>
   );
 }

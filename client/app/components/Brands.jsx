@@ -11,7 +11,7 @@ export default function Brands() {
   return (
     <section className="bg-black w-full px-3 py-2 flex flex-wrap justify-center lg:justify-evenly gap-x-7 gap-y-3">
       {brands.map((brand, i) => (
-        <Image key={i} src={brand} width={60} height={25} />
+        <Image key={i} src={brand} alt="brand-logo" width={60} height={25} />
       ))}
     </section>
   );

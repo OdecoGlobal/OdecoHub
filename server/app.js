@@ -17,7 +17,12 @@ const productRouter = require('./routes/productRoutes');
 // Initializing the app
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 // Set security HTTP headers
 app.use(helmet());

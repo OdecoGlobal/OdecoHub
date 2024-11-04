@@ -9,8 +9,12 @@ import useValidation from '@/app/hooks/useValidation';
 import '../auth.css';
 
 export default function Login() {
-  const { validateField, getInputClassName, renderFieldErrors } =
-    useValidation();
+  const {
+    validateField,
+    getInputClassName,
+    renderFieldErrors,
+    getValidationRules,
+  } = useValidation();
   const { login, isPending } = useLogin();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,39 +27,22 @@ export default function Login() {
       validateField('password', password, rules.password);
     if (isFormValid) {
       login(email, password);
+      setEmail('');
+      setPassword('');
     }
   };
 
-  const rules = {
-    email: [
-      { type: 'required' },
-      {
-        type: 'pattern',
-        value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        message: 'Invalid email format',
-      },
-    ],
-    password: [
-      { type: 'required' },
-      { type: 'minLength', value: 8 },
-      {
-        type: 'pattern',
-        value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/,
-        message: 'Password must contain at least one letter and one number',
-      },
-    ],
-  };
+  const rules = getValidationRules('email', 'password');
 
   return (
-    <section className="mt-5 lg:mt-10 px-10 pb-4 flex flex-row justify-evenly">
+    <section className="mt-5 lg:mt-10 pb-4 px-4 lg:flex flex-row justify-evenly">
       <SideImage />
       <div>
-        <form
-          className="mt-4 lg:mt-0 flex flex-col px-4"
-          onSubmit={handleSubmit}
-        >
+        <form className="mt-4 lg:mt-0" onSubmit={handleSubmit}>
           <div className="text-center mb-5">
-            <h2 className="font-semibold text-4xl mb-1">Log in to Odecohub</h2>
+            <h2 className="font-semibold text-3xl lg:text-4xl mb-1">
+              Log in to Odecohub
+            </h2>
             <p>Enter your details below</p>
           </div>
 
@@ -88,23 +75,23 @@ export default function Login() {
           </div>
 
           <div className="flex items-center justify-between">
-            <button
-              disabled={isPending}
-              className=" mt-3 text-center rounded-lg  px-5 py-2 text-white bg-primary"
-            >
-              {isPending ? 'Loggin In....' : 'Log In'}
+            <button disabled={isPending} className=" btn--primary px-5">
+              {isPending ? 'Logging In....' : 'Log In'}
             </button>
             <Link
               href="/forgotPassword"
-              className="text-primary hover:border focus:border-b-primary"
+              className="text-primary hover:text-slate-400"
             >
               Forgot Password?
             </Link>
           </div>
         </form>
-        <p className=" mt-2 text-center text-slate-400">
+        <p className=" mt-2 text-center text-slate-400 ">
           Don't have an account?{' '}
-          <Link className="font-bold underline" href="/signup">
+          <Link
+            className="font-bold underline hover:text-primary"
+            href="/signup"
+          >
             Sign Up
           </Link>
         </p>

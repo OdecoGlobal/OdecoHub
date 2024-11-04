@@ -49,12 +49,14 @@ export default function Hero() {
       </div>
       <Image
         className=" block mx-auto lg:hidden"
+        alt="Hero-Image"
         src={heroImageMobile}
         width={390}
         height={443}
       />
       <Image
         className="hidden bg-inherit lg:block"
+        alt="Hero Image"
         src={heroImage}
         width={2000}
         height={663}

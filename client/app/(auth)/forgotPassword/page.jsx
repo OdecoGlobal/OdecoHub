@@ -9,12 +9,15 @@ import '../auth.css';
 export default function Login() {
   const [email, setEmail] = useState('');
   const { forgotPassword, isPending } = useForgotPassword();
-  const { validateField, getInputClassName, renderFieldErrors } =
-    useValidation();
+  const {
+    validateField,
+    getInputClassName,
+    renderFieldErrors,
+    getValidationRules,
+  } = useValidation();
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(email);
     const isFormValid = validateField('email', email, rules.email);
 
     if (isFormValid) {
@@ -23,19 +26,10 @@ export default function Login() {
     }
   };
 
-  const rules = {
-    email: [
-      { type: 'required' },
-      {
-        type: 'pattern',
-        value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-        message: 'Invalid email format',
-      },
-    ],
-  };
+  const rules = getValidationRules('email');
 
   return (
-    <section className="mt-5 lg:mt-10 px-10 pb-4">
+    <section className="mt-5 lg:mt-10 px-6 lg:px-52 pb-4">
       <div>
         <form
           className="mt-4 lg:mt-0 flex flex-col px-4"
@@ -48,17 +42,22 @@ export default function Login() {
             <p>Enter your email below to reset your password</p>
           </div>
 
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            className="auth-input"
-          />
+          <div className="auth-div">
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value);
+                validateField('email', e.target.value, rules.email);
+              }}
+              className={getInputClassName('email', email)}
+            />
+            {renderFieldErrors('email')}
+          </div>
 
-          <button className=" mt-3 text-center rounded-lg  px-5 py-2 text-white bg-primary ">
-            Reset Password
+          <button disabled={isPending} className=" btn--primary">
+            {isPending ? 'Sending email...' : 'Reset Password'}
           </button>
         </form>
       </div>

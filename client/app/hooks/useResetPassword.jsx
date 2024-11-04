@@ -4,47 +4,35 @@ import { useAuthContext } from './useAuthContext';
 import { useRouter } from 'next/navigation';
 import { showAlert } from '../utils/alert';
 
-export default function useSignup() {
+export default function useResetPassword() {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const [data, setData] = useState(null);
   const { dispatch } = useAuthContext();
   const router = useRouter();
-  const signup = async (name, email, userName, password, passwordConfirm) => {
-    setData(null);
+  const resetPassword = async (token, password, passwordConfirm) => {
     setError(null);
     setIsPending(true);
 
     try {
-      const res = await axiosInstance.post('/signup', {
-        name,
-        email,
-        userName,
+      const res = await axiosInstance.patch(`/resetPassword/${token}`, {
         password,
         passwordConfirm,
       });
-      console.log(res.data);
-
-      if (!res) {
-        throw new Error('Signup incomplete');
-      }
-
       if (res.data.status === 'success') {
         Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 });
         dispatch({ type: 'LOGIN', payload: res.data.data.user });
-        showAlert('success', 'Signup successful');
+        showAlert('success', 'Password Reset Successful');
         setTimeout(() => {
           router.replace('/login');
         }, 1000);
+        setIsPending(false);
+        setError(null);
       }
-      setIsPending(false);
-      setError(null);
     } catch (err) {
-      console.log(err.response.data.message);
       setError(err.response.data.message);
       showAlert('error', err.response.data.message);
       setIsPending(false);
     }
   };
-  return { signup, error, isPending, data };
+  return { resetPassword, error, isPending };
 }

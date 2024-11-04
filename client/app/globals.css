@@ -44,3 +44,7 @@ body {
 .alert--error {
   background-color: #eb4d4b;
 }
+
+.btn--primary {
+  @apply text-center rounded-md py-2 text-white bg-primary hover:bg-green-700;
+}

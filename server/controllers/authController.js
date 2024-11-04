@@ -21,6 +21,10 @@ const createSendToken = (user, statusCode, res) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
+    // sameSite: 'none',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    path: '/',
   };
   if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
   res.cookie('jwt', token, cookieOptions);
@@ -70,6 +74,8 @@ exports.logout = (req, res) => {
   res.cookie('jwt', 'loggedOut', {
     expires: new Date(Date.now() + 10 * 1000),
     httpOnly: true,
+    // sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    path: '/',
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'strict',
   });
@@ -172,9 +178,11 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
   try {
     // SEND TOKEN VIA EMAIL
-    const resetUrl = `${req.protocol}://${req.get(
-      'host'
-    )}/api/v1/users/resetPassword/${resetToken}`;
+    // const resetUrl = `${req.protocol}://${req.get(
+    //   'host'
+    // )}/api/v1/users/resetPassword/${resetToken}`;
+    const host = req.get('host').split(':')[0];
+    const resetUrl = `${req.protocol}://${host}:${process.env.CLIENT_PORT}/resetPassword/${resetToken}`;
     await new Email(user, resetUrl).sendPasswordReset();
 
     res.status(200).json({
@@ -230,4 +238,39 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
   // 4 LOGIN USER
   createSendToken(user, 200, res);
+});
+
+exports.verifyToken = catchAsync(async (req, res, next) => {
+  // 1. Get token from cookie
+  if (!req.cookies.jwt || req.cookies.jwt === 'loggedOut') {
+    return next(new AppError('Not logged in', 401));
+  }
+  try {
+    // 2. Verify token
+    const decoded = await promisify(jwt.verify)(
+      req.cookies.jwt,
+      process.env.JWT_SECRET
+    );
+    // 3. Check if user still exists
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return next(new AppError('User no longer exists', 401));
+    }
+
+    if (user.changedPasswordAfter(decoded.iat)) {
+      return next(
+        new AppError('User recently changed password! Please login again', 401)
+      );
+    }
+
+    // 5. Send response
+    res.status(200).json({
+      status: 'success',
+      data: {
+        user,
+      },
+    });
+  } catch (err) {
+    return next(new AppError('Invalid token', 401));
+  }
 });

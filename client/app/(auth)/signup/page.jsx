@@ -37,36 +37,6 @@ export default function SignUp() {
     }
   };
 
-  // const rules = {
-  //   name: [{ type: 'required' }, { type: 'minLength', value: 3 }],
-  //   userName: [{ type: 'required' }, { type: 'minLength', value: 3 }],
-  //   email: [
-  //     { type: 'required' },
-  //     {
-  //       type: 'pattern',
-  //       value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  //       message: 'Invalid email format',
-  //     },
-  //   ],
-  //   password: [
-  //     { type: 'required' },
-  //     { type: 'minLength', value: 8 },
-  //     {
-  //       type: 'pattern',
-  //       value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/,
-  //       message: 'Password must contain at least one letter and one number',
-  //     },
-  //   ],
-  //   confirmPassword: [
-  //     { type: 'required' },
-  //     {
-  //       type: 'pattern',
-  //       value: new RegExp(`^${password}$`),
-  //       message: 'Passwords do not match',
-  //     },
-  //   ],
-  // };
-
   const rules = getValidationRules(
     'name',
     'userName',
@@ -75,12 +45,14 @@ export default function SignUp() {
     'confirmPassword'
   );
   return (
-    <section className="mt-5 lg:mt-10 px-10 pb-4 flex flex-row justify-evenly">
+    <section className="mt-5 lg:mt-10 px-6 lg:px-10 pb-4 lg:flex flex-row justify-evenly">
       <SideImage />
       <div>
-        <form className="mt-4 lg:mt-0 flex flex-col" onSubmit={handleSubmit}>
+        <form className="mt-4 lg:mt-0 lg:flex flex-col" onSubmit={handleSubmit}>
           <div className="text-center mb-3">
-            <h2 className="font-semibold text-4xl mb-1">Create an account</h2>
+            <h2 className="font-semibold text-xl lg:text-4xl mb-1">
+              Create an account
+            </h2>
             <p className="text-sm">Enter your details below</p>
           </div>
 
@@ -155,16 +127,16 @@ export default function SignUp() {
             {renderFieldErrors('confirmPassword')}
           </div>
 
-          <button
-            disabled={isPending}
-            className=" mt-3 text-center rounded-lg w-full py-2 text-white bg-primary"
-          >
+          <button disabled={isPending} className="w-full btn--primary">
             {isPending ? 'Creating Account...' : 'Create Account'}
           </button>
         </form>
         <p className=" mt-2 text-center text-slate-400">
           Already have account?{' '}
-          <Link className="font-bold underline" href="/login">
+          <Link
+            className="font-bold underline hover:text-primary"
+            href="/login"
+          >
             Log in
           </Link>
         </p>
