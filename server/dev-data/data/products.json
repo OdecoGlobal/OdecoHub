@@ -1,0 +1,76 @@
+[
+  {
+    "name": "Samsung Galaxy S21",
+    "slug": "samsung-galaxy-s21",
+    "price": 799,
+    "priceDiscount": 10,
+    "category": "Phone & Tablets",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 120,
+    "summary": "A high-end smartphone with advanced camera features and 5G connectivity.",
+    "description": "The Samsung Galaxy S21 offers powerful performance, a sleek design, and an incredible camera system, perfect for capturing every moment.",
+    "imageCover": "galaxy-s21-cover.jpg",
+    "images": ["galaxy-s21-1.jpg", "galaxy-s21-2.jpg", "galaxy-s21-3.jpg"],
+    "seller": "6729a75dd94a5511aac3392d"
+  },
+  {
+    "name": "Sony WH-1000XM4",
+    "slug": "sony-wh-1000xm4",
+    "price": 349,
+    "priceDiscount": 15,
+    "category": "Electronics",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 85,
+    "summary": "Industry-leading noise-canceling headphones with premium sound quality.",
+    "description": "Sony WH-1000XM4 headphones are perfect for music lovers who want to enjoy a fully immersive audio experience with unparalleled noise-canceling technology.",
+    "imageCover": "sony-wh-1000xm4-cover.jpg",
+    "images": ["sony-wh-1000xm4-1.jpg", "sony-wh-1000xm4-2.jpg"],
+    "seller": "6729a75dd94a5511aac3392e"
+  },
+  {
+    "name": "Asus ROG Strix G17",
+    "slug": "asus-rog-strix-g17",
+    "price": 1250,
+    "priceDiscount": 5,
+    "category": "Gaming",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 200,
+    "summary": "High-performance gaming laptop with NVIDIA GeForce RTX 3060 graphics.",
+    "description": "The Asus ROG Strix G17 is designed for gamers who demand powerful performance and stunning visuals in a portable package.",
+    "imageCover": "asus-rog-strix-g17-cover.jpg",
+    "images": [
+      "asus-rog-strix-g17-1.jpg",
+      "asus-rog-strix-g17-2.jpg",
+      "asus-rog-strix-g17-3.jpg"
+    ],
+    "seller": "6729a75dd94a5511aac3392b"
+  },
+  {
+    "name": "Apple MacBook Air M1",
+    "slug": "apple-macbook-air-m1",
+    "price": 999,
+    "priceDiscount": 10,
+    "category": "Computing",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 320,
+    "summary": "Lightweight laptop with Apple's powerful M1 chip for exceptional performance.",
+    "description": "The MacBook Air with M1 delivers blazing-fast performance in a lightweight and fanless design, perfect for both professionals and students.",
+    "imageCover": "macbook-air-m1-cover.jpg",
+    "images": ["macbook-air-m1-1.jpg", "macbook-air-m1-2.jpg"],
+    "seller": "6729a75dd94a5511aac3392f"
+  },
+  {
+    "name": "Nike Air Zoom Pegasus 38",
+    "slug": "nike-air-zoom-pegasus-38",
+    "price": 120,
+    "priceDiscount": 20,
+    "category": "Fashion",
+    "ratingsAverage": 4.3,
+    "ratingsQuantity": 150,
+    "summary": "High-performance running shoes for maximum comfort and support.",
+    "description": "Nike Air Zoom Pegasus 38 provides responsive cushioning, excellent durability, and a sleek design for runners of all levels.",
+    "imageCover": "nike-pegasus-38-cover.jpg",
+    "images": ["nike-pegasus-38-1.jpg", "nike-pegasus-38-2.jpg"],
+    "seller": "6729a75dd94a5511aac3392c"
+  }
+]

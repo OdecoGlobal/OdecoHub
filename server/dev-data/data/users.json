@@ -1,0 +1,152 @@
+[
+  {
+    "name": "John Smith",
+    "userName": "johnsmith",
+    "email": "admin1@example.com",
+    "role": "admin",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Sarah Johnson",
+    "userName": "sarahj",
+    "email": "admin2@example.com",
+    "role": "admin",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Michael Chen",
+    "userName": "mchen",
+    "email": "admin3@example.com",
+    "role": "admin",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Emma Wilson",
+    "userName": "ewilson",
+    "email": "emma.wilson@example.com",
+    "role": "seller",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "David Miller",
+    "userName": "dmiller",
+    "email": "david.miller@example.com",
+    "role": "seller",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Lisa Wang",
+    "userName": "lwang",
+    "email": "lisa.wang@example.com",
+    "role": "seller",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "James Brown",
+    "userName": "jbrown",
+    "email": "james.brown@example.com",
+    "role": "seller",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Maria Garcia",
+    "userName": "mgarcia",
+    "email": "maria.garcia@example.com",
+    "role": "seller",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Robert Taylor",
+    "userName": "rtaylor",
+    "email": "robert.taylor@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Patricia Lee",
+    "userName": "plee",
+    "email": "patricia.lee@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Thomas Anderson",
+    "userName": "tanderson",
+    "email": "thomas.anderson@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Jennifer Martinez",
+    "userName": "jmartinez",
+    "email": "jennifer.martinez@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Kevin Zhang",
+    "userName": "kzhang",
+    "email": "kevin.zhang@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Sandra Wilson",
+    "userName": "swilson",
+    "email": "sandra.wilson@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  },
+  {
+    "name": "Daniel Kim",
+    "userName": "dkim",
+    "email": "daniel.kim@example.com",
+    "role": "user",
+    "photo": "default.jpg",
+    "password": "pass1234",
+    "passwordConfirm": "pass1234",
+    "active": true
+  }
+]

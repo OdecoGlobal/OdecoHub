@@ -13,6 +13,7 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const { logout, isPending } = useLogout();
   const { user } = useAuthContext();
+
   const navMenu = [
     {
       name: 'Home',

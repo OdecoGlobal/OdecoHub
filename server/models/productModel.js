@@ -51,7 +51,7 @@ const productSchema = new mongoose.Schema(
     summary: {
       type: String,
       required: [true, 'A product must have a summary'],
-      minlength: [100, 'A summary must be greater than 100 characters'],
+      minlength: [20, 'A summary must be greater than 20 characters'],
       trim: true,
     },
 
