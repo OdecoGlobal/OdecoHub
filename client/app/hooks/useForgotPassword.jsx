@@ -12,7 +12,7 @@ export default function useForgotPassword() {
     setIsPending(true);
 
     try {
-      const res = await axiosInstance.post('/forgotPassword', {
+      const res = await axiosInstance.post('/users/forgotPassword', {
         email,
       });
 

@@ -17,7 +17,7 @@ export default function useSignup() {
     setIsPending(true);
 
     try {
-      const res = await axiosInstance.post('/signup', {
+      const res = await axiosInstance.post('/users/signup', {
         name,
         email,
         userName,

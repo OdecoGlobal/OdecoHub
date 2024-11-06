@@ -15,13 +15,14 @@ export default function useLogin() {
     setIsPending(true);
 
     try {
-      const res = await axiosInstance.post('/login', {
+      const res = await axiosInstance.post('/users/login', {
         email,
         password,
       });
 
       if (res.data.status === 'success') {
         Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 });
+
         dispatch({ type: 'LOGIN', payload: res.data.data.user });
         showAlert('success', 'Logged In Successfully');
         setTimeout(() => {

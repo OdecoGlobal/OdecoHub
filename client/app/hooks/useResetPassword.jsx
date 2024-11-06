@@ -14,7 +14,7 @@ export default function useResetPassword() {
     setIsPending(true);
 
     try {
-      const res = await axiosInstance.patch(`/resetPassword/${token}`, {
+      const res = await axiosInstance.patch(`/users/resetPassword/${token}`, {
         password,
         passwordConfirm,
       });

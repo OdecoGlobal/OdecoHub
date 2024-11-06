@@ -1,0 +1,3 @@
+.nav--drop {
+  @apply flex items-center space-x-2;
+}

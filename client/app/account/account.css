@@ -1,0 +1,7 @@
+.account--input {
+  @apply text-black bg-secondary w-full pl-10 pr-4 py-2 border rounded-md focus:outline-primary focus:ring-slate-300 focus:border-transparent;
+}
+
+.account--div {
+  @apply w-64 md:w-80 lg:w-96 mb-4;
+}

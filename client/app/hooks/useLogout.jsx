@@ -15,7 +15,7 @@ export default function useLogout() {
     setIsPending(true);
 
     try {
-      const res = await axiosInstance.get('/logout');
+      const res = await axiosInstance.get('/users/logout');
 
       if (res.data.status === 'success') {
         Cookies.remove('user');
