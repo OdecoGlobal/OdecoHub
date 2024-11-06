@@ -4,7 +4,6 @@
     "userName": "johnsmith",
     "email": "admin1@example.com",
     "role": "admin",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -14,7 +13,6 @@
     "userName": "sarahj",
     "email": "admin2@example.com",
     "role": "admin",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -24,7 +22,6 @@
     "userName": "mchen",
     "email": "admin3@example.com",
     "role": "admin",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -34,7 +31,6 @@
     "userName": "ewilson",
     "email": "emma.wilson@example.com",
     "role": "seller",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -44,7 +40,6 @@
     "userName": "dmiller",
     "email": "david.miller@example.com",
     "role": "seller",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -54,7 +49,6 @@
     "userName": "lwang",
     "email": "lisa.wang@example.com",
     "role": "seller",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -64,7 +58,6 @@
     "userName": "jbrown",
     "email": "james.brown@example.com",
     "role": "seller",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -74,7 +67,6 @@
     "userName": "mgarcia",
     "email": "maria.garcia@example.com",
     "role": "seller",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -84,7 +76,6 @@
     "userName": "rtaylor",
     "email": "robert.taylor@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -94,7 +85,6 @@
     "userName": "plee",
     "email": "patricia.lee@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -104,7 +94,6 @@
     "userName": "tanderson",
     "email": "thomas.anderson@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -114,7 +103,6 @@
     "userName": "jmartinez",
     "email": "jennifer.martinez@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -124,7 +112,6 @@
     "userName": "kzhang",
     "email": "kevin.zhang@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -134,7 +121,6 @@
     "userName": "swilson",
     "email": "sandra.wilson@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true
@@ -144,7 +130,6 @@
     "userName": "dkim",
     "email": "daniel.kim@example.com",
     "role": "user",
-    "photo": "default.jpg",
     "password": "pass1234",
     "passwordConfirm": "pass1234",
     "active": true

@@ -13,7 +13,7 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState(false);
   const { logout, isPending } = useLogout();
   const { user } = useAuthContext();
-
+  console.log(user);
   const navMenu = [
     {
       name: 'Home',
@@ -108,7 +108,7 @@ export default function Navbar() {
           </h1>
         </div>
 
-        <div className="flex  space-x-5 ">
+        <div className="flex  items-center space-x-5 ">
           <Image
             className="cursor-pointer"
             src={searchIcon}
@@ -116,6 +116,7 @@ export default function Navbar() {
             height={20}
             alt="searchIcon"
           />
+
           <Image
             className="cursor-pointer"
             src={cartIcon}
@@ -123,13 +124,24 @@ export default function Navbar() {
             width={20}
             height={20}
           />
-          <Image
-            className="cursor-pointer"
-            src={userIcon}
-            alt="profile"
-            width={20}
-            height={20}
-          />
+          {user && (
+            <Image
+              alt="profile-image"
+              src={user.photo}
+              width={20}
+              height={20}
+              className="cursor-pointer w-7 h-7 rounded-full"
+            />
+          )}
+          {!user && (
+            <Image
+              className="cursor-pointer"
+              src={userIcon}
+              alt="profile"
+              width={20}
+              height={20}
+            />
+          )}
         </div>
       </nav>
 

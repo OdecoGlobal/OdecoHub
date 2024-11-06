@@ -7,7 +7,7 @@ import { showAlert } from '../utils/alert';
 export default function useResetPassword() {
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  const { dispatch } = useAuthContext();
+  // const { dispatch } = useAuthContext();
   const router = useRouter();
   const resetPassword = async (token, password, passwordConfirm) => {
     setError(null);
@@ -19,8 +19,6 @@ export default function useResetPassword() {
         passwordConfirm,
       });
       if (res.data.status === 'success') {
-        Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 });
-        dispatch({ type: 'LOGIN', payload: res.data.data.user });
         showAlert('success', 'Password Reset Successful');
         setTimeout(() => {
           router.replace('/login');

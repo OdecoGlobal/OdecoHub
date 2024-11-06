@@ -3,6 +3,7 @@ import { axiosInstance } from '../utils/axios';
 import { useAuthContext } from './useAuthContext';
 import { useRouter } from 'next/navigation';
 import { showAlert } from '../utils/alert';
+import Cookies from 'js-cookie';
 
 export default function useSignup() {
   const [error, setError] = useState(null);
@@ -30,8 +31,8 @@ export default function useSignup() {
       }
 
       if (res.data.status === 'success') {
-        Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 });
-        dispatch({ type: 'LOGIN', payload: res.data.data.user });
+        // Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 });
+        // dispatch({ type: 'LOGIN', payload: res.data.data.user });
         showAlert('success', 'Signup successful');
         setTimeout(() => {
           router.replace('/login');
@@ -40,6 +41,8 @@ export default function useSignup() {
       setIsPending(false);
       setError(null);
     } catch (err) {
+      console.log(err);
+
       console.log(err.response.data.message);
       setError(err.response.data.message);
       showAlert('error', err.response.data.message);

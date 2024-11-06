@@ -3,9 +3,15 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const factory = require('./handlerFactory');
 const multer = require('multer');
-const sharp = require('sharp');
+const cloudinary = require('cloudinary').v2;
 
 // IMAGE UPLOAD
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_KEY,
+  api_secret: process.env.CLOUD_SECRET,
+});
+
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
@@ -24,12 +30,19 @@ exports.uploadUserPhoto = upload.single('photo');
 
 exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
   if (!req.file) return next();
-  req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
-  await sharp(req.file.buffer)
-    .resize(500, 500)
-    .toFormat('jpeg')
-    .jpeg({ quality: 90 })
-    .toFile(`public/img/users/${req.file.filename}`);
+  const b64 = Buffer.from(req.file.buffer).toString('base64');
+  const dataURI = `data:${req.file.mimetype};base64,${b64}`;
+
+  const result = await cloudinary.uploader.upload(dataURI, {
+    folder: 'users',
+    public_id: `user-${req.user.id}-${Date.now()}`,
+    transformation: [
+      { width: 500, height: 500, crop: 'fill' },
+      { quality: 'auto:good' },
+    ],
+  });
+
+  req.file.fileName = result.secure_url;
   next();
 });
 

@@ -46,7 +46,14 @@ export const AuthContextProvider = ({ children }) => {
 };
 
 export function AuthStatus({ children }) {
-  const { authIsReady } = useAuthContext();
+  const { dispatch, authIsReady, user } = useAuthContext();
+  useEffect(() => {
+    if (user) {
+      dispatch({ type: 'AUTH_IS_READY', payload: user });
+    } else {
+      dispatch({ type: 'AUTH_IS_READY', payload: null });
+    }
+  }, []);
   return (
     <>
       {!authIsReady && (

@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 // app.use(require('express-blocks'));
 
 const AppError = require('./utils/appError');
@@ -23,6 +24,9 @@ app.use(
     credentials: true,
   })
 );
+
+// GLOAL MIDDLE WARE
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Set security HTTP headers
 app.use(helmet());

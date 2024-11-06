@@ -28,7 +28,8 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: 'default.jpg',
+    default:
+      'https://res.cloudinary.com/dd0is7qa0/image/upload/v1730873970/users/default.jpg',
   },
   password: {
     type: String,
