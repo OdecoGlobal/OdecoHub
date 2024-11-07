@@ -34,9 +34,9 @@ export function useUpdateAccount() {
     } catch (err) {
       console.log(err);
 
-      // console.log(err.response.data.message);
-      // setError(err.response.data.message);
-      // showAlert('error', err.response.data.message);
+      console.log(err.response?.data.message);
+      setError(err.response.data.message);
+      showAlert('error', err.response.data.message);
       setIsPending(false);
     }
   };
