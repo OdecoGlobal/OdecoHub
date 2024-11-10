@@ -27,7 +27,7 @@ export function useUpdateAccount() {
         showAlert('success', `${type.toUpperCase()} Updated Successfully`);
         setTimeout(() => {
           router.replace('/');
-        }, 1000);
+        }, 500);
       }
       setIsPending(false);
       setError(null);

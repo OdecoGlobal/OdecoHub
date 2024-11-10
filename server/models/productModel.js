@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: [true, 'A product must have a price'],
     },
+    stock: {
+      type: Number,
+      required: [true, 'A product must have a stock amount'],
+    },
 
     priceDiscount: {
       type: Number,
@@ -69,13 +73,11 @@ const productSchema = new mongoose.Schema(
       type: [String],
       required: [true, 'Product must have at least one image'],
     },
-    seller: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: 'User',
-        required: [true, 'Each product must have a seller'],
-      },
-    ],
+    seller: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, 'Each product must have a seller'],
+    },
   },
   {
     toJSON: { virtuals: true },

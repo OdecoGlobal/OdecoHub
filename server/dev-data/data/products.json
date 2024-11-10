@@ -1,76 +1,249 @@
 [
   {
-    "name": "Samsung Galaxy S21",
-    "slug": "samsung-galaxy-s21",
-    "price": 799,
+    "name": "iPhone 14 Pro Max",
+    "slug": "iphone-14-pro-max",
+    "price": 1299.99,
     "priceDiscount": 10,
     "category": "Phone & Tablets",
-    "ratingsAverage": 4.5,
-    "ratingsQuantity": 120,
-    "summary": "A high-end smartphone with advanced camera features and 5G connectivity.",
-    "description": "The Samsung Galaxy S21 offers powerful performance, a sleek design, and an incredible camera system, perfect for capturing every moment.",
-    "imageCover": "galaxy-s21-cover.jpg",
-    "images": ["galaxy-s21-1.jpg", "galaxy-s21-2.jpg", "galaxy-s21-3.jpg"],
-    "seller": "6729a75dd94a5511aac3392d"
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 245,
+    "stock": 50,
+    "summary": "Apple's flagship smartphone with advanced camera system and A16 Bionic chip",
+    "description": "The iPhone 14 Pro Max features a 6.7-inch Super Retina XDR display, Dynamic Island, 48MP main camera, and all-day battery life. Experience the most powerful iPhone yet.",
+    "imageCover": "https://images.unsplash.com/photo-1675785732229-528a66521e23",
+    "images": [
+      "https://images.unsplash.com/photo-1675785732229-528a66521e23",
+      "https://images.unsplash.com/photo-1675785732713-e3dfa3066e75",
+      "https://images.unsplash.com/photo-1675785732636-978b442ce574"
+    ],
+    "seller": "507f1f77bcf86cd799439011"
   },
   {
-    "name": "Sony WH-1000XM4",
-    "slug": "sony-wh-1000xm4",
-    "price": 349,
+    "name": "Samsung Galaxy S24 Ultra",
+    "slug": "samsung-galaxy-s24-ultra",
+    "price": 1199.99,
+    "priceDiscount": 15,
+    "category": "Phone & Tablets",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 189,
+    "stock": 45,
+    "summary": "Samsung's ultimate flagship with S-Pen and advanced AI capabilities",
+    "description": "The Galaxy S24 Ultra comes with a 200MP main camera, powerful Snapdragon processor, and integrated AI features. Perfect for productivity and creativity.",
+    "imageCover": "https://images.unsplash.com/photo-1675785732713-e3dfa3066e75",
+    "images": [
+      "https://images.unsplash.com/photo-1675785732713-e3dfa3066e75",
+      "https://images.unsplash.com/photo-1675785732636-978b442ce574",
+      "https://images.unsplash.com/photo-1675785732229-528a66521e23"
+    ],
+    "seller": "507f1f77bcf86cd799439012"
+  },
+  {
+    "name": "MacBook Pro 16-inch",
+    "slug": "macbook-pro-16-inch",
+    "price": 2499.99,
+    "priceDiscount": 12,
+    "category": "Computing",
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 156,
+    "stock": 30,
+    "summary": "Powerful laptop with M2 Pro chip for professional users",
+    "description": "Features a stunning 16-inch Liquid Retina XDR display, M2 Pro chip, up to 32GB unified memory, and amazing battery life. Perfect for creative professionals.",
+    "imageCover": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+    "images": [
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+      "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9",
+      "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9"
+    ],
+    "seller": "507f1f77bcf86cd799439013"
+  },
+  {
+    "name": "PS5 Digital Edition",
+    "slug": "ps5-digital-edition",
+    "price": 399.99,
+    "priceDiscount": 5,
+    "category": "Gaming",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 312,
+    "stock": 25,
+    "summary": "Next-gen gaming console with lightning-fast loading",
+    "description": "Experience next-gen gaming with ray tracing, 4K resolution, and ultra-high speed SSD. Includes DualSense wireless controller.",
+    "imageCover": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
+    "images": [
+      "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
+      "https://images.unsplash.com/photo-1607853202273-797f1c22a38e",
+      "https://images.unsplash.com/photo-1622297845775-5ff3fef71d13"
+    ],
+    "seller": "507f1f77bcf86cd799439014"
+  },
+  {
+    "name": "Nike Air Max 2024",
+    "slug": "nike-air-max-2024",
+    "price": 179.99,
+    "priceDiscount": 20,
+    "category": "Fashion",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 89,
+    "stock": 100,
+    "summary": "Latest edition of the iconic Air Max series with enhanced comfort",
+    "description": "Features Nike's latest cushioning technology, breathable mesh upper, and sustainable materials. Perfect for both sports and casual wear.",
+    "imageCover": "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a",
+      "https://images.unsplash.com/photo-1595341888016-a392ef81b7de"
+    ],
+    "seller": "507f1f77bcf86cd799439015"
+  },
+  {
+    "name": "Samsung 65\" OLED TV",
+    "slug": "samsung-65-oled-tv",
+    "price": 2199.99,
     "priceDiscount": 15,
     "category": "Electronics",
     "ratingsAverage": 4.7,
-    "ratingsQuantity": 85,
-    "summary": "Industry-leading noise-canceling headphones with premium sound quality.",
-    "description": "Sony WH-1000XM4 headphones are perfect for music lovers who want to enjoy a fully immersive audio experience with unparalleled noise-canceling technology.",
-    "imageCover": "sony-wh-1000xm4-cover.jpg",
-    "images": ["sony-wh-1000xm4-1.jpg", "sony-wh-1000xm4-2.jpg"],
-    "seller": "6729a75dd94a5511aac3392e"
+    "ratingsQuantity": 167,
+    "stock": 20,
+    "summary": "Premium OLED TV with stunning picture quality and smart features",
+    "description": "Experience true-to-life colors and perfect blacks with Samsung's latest OLED technology. Includes Gaming Hub and built-in voice assistants.",
+    "imageCover": "https://images.unsplash.com/photo-1593784991095-a205069470b6",
+    "images": [
+      "https://images.unsplash.com/photo-1593784991095-a205069470b6",
+      "https://images.unsplash.com/photo-1601944177325-f8867652837f",
+      "https://images.unsplash.com/photo-1593784991095-a205069470b6"
+    ],
+    "seller": "507f1f77bcf86cd799439016"
   },
   {
-    "name": "Asus ROG Strix G17",
-    "slug": "asus-rog-strix-g17",
-    "price": 1250,
+    "name": "iPad Pro 12.9",
+    "slug": "ipad-pro-12-9",
+    "price": 1099.99,
+    "priceDiscount": 8,
+    "category": "Phone & Tablets",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 203,
+    "stock": 40,
+    "summary": "Powerful tablet with M2 chip and stunning Liquid Retina XDR display",
+    "description": "Features the M2 chip, 12.9-inch Liquid Retina XDR display, and support for Apple Pencil 2nd generation. Perfect for creative professionals.",
+    "imageCover": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0",
+    "images": [
+      "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0",
+      "https://images.unsplash.com/photo-1585790050230-5dd28404ccb5",
+      "https://images.unsplash.com/photo-1585790050230-5dd28404ccb5"
+    ],
+    "seller": "507f1f77bcf86cd799439017"
+  },
+  {
+    "name": "Adidas Ultraboost 24",
+    "slug": "adidas-ultraboost-24",
+    "price": 189.99,
+    "priceDiscount": 25,
+    "category": "Fashion",
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 145,
+    "stock": 80,
+    "summary": "Premium running shoes with responsive boost cushioning",
+    "description": "Features Primeknit+ upper, responsive Boost midsole, and Continental™ Rubber outsole. Perfect for running and casual wear.",
+    "imageCover": "https://images.unsplash.com/photo-1608231387042-66d1773070a5",
+    "images": [
+      "https://images.unsplash.com/photo-1608231387042-66d1773070a5",
+      "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb",
+      "https://images.unsplash.com/photo-1587563871167-1ee9c731aefb"
+    ],
+    "seller": "507f1f77bcf86cd799439018"
+  },
+  {
+    "name": "Xbox Series X",
+    "slug": "xbox-series-x",
+    "price": 499.99,
+    "priceDiscount": 10,
+    "category": "Gaming",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 278,
+    "stock": 35,
+    "summary": "Microsoft's most powerful gaming console ever",
+    "description": "True 4K gaming, ray tracing, and quick resume feature. Includes wireless controller and 1TB custom SSD.",
+    "imageCover": "https://images.unsplash.com/photo-1621259182978-fbf433fd6eb7",
+    "images": [
+      "https://images.unsplash.com/photo-1621259182978-fbf433fd6eb7",
+      "https://images.unsplash.com/photo-1605901309584-818e25960a8f",
+      "https://images.unsplash.com/photo-1605901309584-818e25960a8f"
+    ],
+    "seller": "507f1f77bcf86cd799439019"
+  },
+  {
+    "name": "Dell XPS 15",
+    "slug": "dell-xps-15",
+    "price": 1799.99,
+    "priceDiscount": 12,
+    "category": "Computing",
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 167,
+    "stock": 25,
+    "summary": "Premium laptop with InfinityEdge display and powerful performance",
+    "description": "Features 15.6\" 4K OLED display, Intel Core i9, NVIDIA RTX 3050 Ti, and premium build quality. Perfect for content creators.",
+    "imageCover": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45",
+    "images": [
+      "https://images.unsplash.com/photo-1593642632823-8f785ba67e45",
+      "https://images.unsplash.com/photo-1593642634443-44adaa06623a",
+      "https://images.unsplash.com/photo-1593642634443-44adaa06623a"
+    ],
+    "seller": "507f1f77bcf86cd799439020"
+  },
+  {
+    "name": "Sony WH-1000XM5",
+    "slug": "sony-wh-1000xm5",
+    "price": 399.99,
+    "priceDiscount": 15,
+    "category": "Electronics",
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 234,
+    "stock": 60,
+    "summary": "Premium noise-cancelling headphones with exceptional sound quality",
+    "description": "Industry-leading noise cancellation, 30-hour battery life, and multipoint connection. Perfect for music lovers and travelers.",
+    "imageCover": "https://images.unsplash.com/photo-1546435770-a3e426bf472b",
+    "images": [
+      "https://images.unsplash.com/photo-1546435770-a3e426bf472b",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90",
+      "https://images.unsplash.com/photo-1583394838336-acd977736f90"
+    ],
+    "seller": "507f1f77bcf86cd799439021"
+  },
+  {
+    "name": "Google Pixel 8 Pro",
+    "slug": "google-pixel-8-pro",
+    "price": 999.99,
+    "priceDiscount": 10,
+    "category": "Phone & Tablets",
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 156,
+    "stock": 40,
+    "summary": "Google's flagship phone with advanced AI capabilities",
+    "description": "Features a 6.7-inch LTPO OLED display, Google Tensor G3 chip, and advanced computational photography. Best-in-class camera system.",
+    "imageCover": "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+    "images": [
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97",
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97"
+    ],
+    "seller": "507f1f77bcf86cd799439022"
+  },
+  {
+    "name": "Nintendo Switch OLED",
+    "slug": "nintendo-switch-oled",
+    "price": 349.99,
     "priceDiscount": 5,
     "category": "Gaming",
-    "ratingsAverage": 4.6,
-    "ratingsQuantity": 200,
-    "summary": "High-performance gaming laptop with NVIDIA GeForce RTX 3060 graphics.",
-    "description": "The Asus ROG Strix G17 is designed for gamers who demand powerful performance and stunning visuals in a portable package.",
-    "imageCover": "asus-rog-strix-g17-cover.jpg",
-    "images": [
-      "asus-rog-strix-g17-1.jpg",
-      "asus-rog-strix-g17-2.jpg",
-      "asus-rog-strix-g17-3.jpg"
-    ],
-    "seller": "6729a75dd94a5511aac3392b"
-  },
-  {
-    "name": "Apple MacBook Air M1",
-    "slug": "apple-macbook-air-m1",
-    "price": 999,
-    "priceDiscount": 10,
-    "category": "Computing",
     "ratingsAverage": 4.8,
-    "ratingsQuantity": 320,
-    "summary": "Lightweight laptop with Apple's powerful M1 chip for exceptional performance.",
-    "description": "The MacBook Air with M1 delivers blazing-fast performance in a lightweight and fanless design, perfect for both professionals and students.",
-    "imageCover": "macbook-air-m1-cover.jpg",
-    "images": ["macbook-air-m1-1.jpg", "macbook-air-m1-2.jpg"],
-    "seller": "6729a75dd94a5511aac3392f"
-  },
-  {
-    "name": "Nike Air Zoom Pegasus 38",
-    "slug": "nike-air-zoom-pegasus-38",
-    "price": 120,
-    "priceDiscount": 20,
-    "category": "Fashion",
-    "ratingsAverage": 4.3,
-    "ratingsQuantity": 150,
-    "summary": "High-performance running shoes for maximum comfort and support.",
-    "description": "Nike Air Zoom Pegasus 38 provides responsive cushioning, excellent durability, and a sleek design for runners of all levels.",
-    "imageCover": "nike-pegasus-38-cover.jpg",
-    "images": ["nike-pegasus-38-1.jpg", "nike-pegasus-38-2.jpg"],
-    "seller": "6729a75dd94a5511aac3392c"
+    "ratingsQuantity": 289,
+    "stock": 50,
+    "summary": "Enhanced gaming console with vibrant OLED display",
+    "description": "7-inch OLED screen, enhanced audio, wide adjustable stand, and 64GB storage. Perfect for both handheld and TV gaming.",
+    "imageCover": "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e",
+    "images": [
+      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e",
+      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e",
+      "https://images.unsplash.com/photo-1578303512597-81e6cc155b3e"
+    ],
+    "seller": "507f1f77bcf86cd799439023"
   }
 ]
