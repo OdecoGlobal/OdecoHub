@@ -1,14 +1,15 @@
 import React from 'react';
 import Hero from './components/Hero';
 import Brands from './components/Brands';
-import ProductCard from './components/ProductCard/ProductCard';
+import Explore from './components/ProductCard/Explore';
+import Popular from './components/ProductCard/Popular';
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <Brands />
-      <ProductCard />
+      <Explore />
+      <Popular />
     </div>
   );
 }
