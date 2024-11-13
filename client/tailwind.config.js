@@ -11,8 +11,11 @@ module.exports = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         primary: '#DB4444',
-        secondary: '#7D8184',
+        secondary: '#e2e8f0',
+        secondary2: '#A0BCE0',
+        tetiary: '#F5F5F5',
         accent: '#00FF66',
+
         loginBackground: '#cbe4e8',
       },
     },

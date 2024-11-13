@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { axiosInstance } from '../utils/axios';
 
 export default function useAxios(url, method = 'GET') {

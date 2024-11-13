@@ -132,7 +132,7 @@ export default function Navbar() {
           <input
             type="text"
             placeholder="Search for products..."
-            className="text-black bg-secondary w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-slate-300 focus:border-transparent"
+            className="text-black bg-slate-200 w-full pl-10 pr-4 py-2 border rounded-md focus:outline-none focus:ring-slate-300 focus:border-transparent"
           />
           <Image
             src={searchIcon}
