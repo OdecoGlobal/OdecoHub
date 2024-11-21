@@ -2,16 +2,21 @@
 import { useState } from 'react';
 import './account.css';
 import { useUpdateAccount } from '../hooks/useUpdateAccount';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Account() {
-  const [name, setName] = useState('');
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
+  const {user} = useAuthContext()
+
+  const [name, setName] = useState(user.name);
+  const [userName, setUserName] = useState(user.userName);
+  const [email, setEmail] = useState(user.email);
   const [photo, setPhoto] = useState(null);
   const [passwordCurrent, setCurrentPassword] = useState('');
   const [password, setNewPassword] = useState('');
   const [passwordConfirm, setConfirmNewPassword] = useState('');
   const { updateAccount, isPending } = useUpdateAccount();
+  console.log(user);
+  
 
   const handleSubmitUser = e => {
     e.preventDefault();
