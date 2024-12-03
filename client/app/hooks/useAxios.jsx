@@ -22,8 +22,6 @@ export default function useAxios(url, method = 'GET') {
 
         const res = await axiosInstance(url, options);
         if (res.data.status === 'success') {
-          console.log(res.data.data.data);
-
           setData(res.data.data.data);
         }
         setIsPending(false);
