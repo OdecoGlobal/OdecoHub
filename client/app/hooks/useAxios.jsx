@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { axiosInstance } from '../utils/axios';
 
 export default function useAxios(url, method = 'GET') {
@@ -6,33 +6,27 @@ export default function useAxios(url, method = 'GET') {
   const [isPending, setIsPending] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async (requestData = null) => {
-      setIsPending(true);
-      setError(null);
+  const fetchData = async (fetchOption, id = '') => {
+    setError(null);
+    setIsPending(true);
 
-      try {
-        const options = {
-          method,
-          ...(requestData &&
-            ['POST', 'PATCH', 'PUT'].includes(method) && {
-              data: requestData,
-            }),
-        };
-
-        const res = await axiosInstance(url, options);
-        if (res.data.status === 'success') {
-          setData(res.data.data.data);
-        }
-        setIsPending(false);
-      } catch (err) {
-        setError('Could not fetch the data');
-        setIsPending(false);
-        console.error(err);
+    try {
+      const res = await axiosInstance({
+        method,
+        url: id ? `${url}/${id}` : url,
+        ...(method !== 'GET' && fetchOption),
+      });
+      if (res.data.status === 'success') {
+        setData(res.data.data.data);
       }
-    };
-    fetchData();
-  }, [url, method]);
+      setIsPending(false);
+    } catch (err) {
+      console.log(err);
+      setError(err.response.data.message || 'Could not fetch the data');
 
-  return { data, isPending, error };
+      setIsPending(false);
+    }
+  };
+
+  return { data, isPending, error, fetchData };
 }

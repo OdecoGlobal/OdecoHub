@@ -56,6 +56,9 @@ input[type='number'] {
   background-color: #eb4d4b;
 }
 
+.btn {
+  @apply text-center rounded-md py-2;
+}
 .btn--primary {
   @apply text-center rounded-md py-2 text-white bg-primary hover:bg-green-700;
 }

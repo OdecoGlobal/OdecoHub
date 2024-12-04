@@ -5,7 +5,7 @@ import { useUpdateAccount } from '../hooks/useUpdateAccount';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Account() {
-  const {user} = useAuthContext()
+  const { user } = useAuthContext();
 
   const [name, setName] = useState(user.name);
   const [userName, setUserName] = useState(user.userName);
@@ -16,7 +16,6 @@ export default function Account() {
   const [passwordConfirm, setConfirmNewPassword] = useState('');
   const { updateAccount, isPending } = useUpdateAccount();
   console.log(user);
-  
 
   const handleSubmitUser = e => {
     e.preventDefault();
@@ -28,7 +27,6 @@ export default function Account() {
     if (photo) formData.append('photo', photo);
 
     updateAccount(formData, 'form');
-    console.log(formData, 'form');
   };
   const handleSubmitPassword = async e => {
     e.preventDefault();
@@ -37,7 +35,6 @@ export default function Account() {
       { passwordCurrent, password, passwordConfirm },
       'password'
     );
-    console.log({ passwordCurrent, password, passwordConfirm }, 'password');
   };
 
   return (

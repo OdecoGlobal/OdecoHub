@@ -3,8 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import StarRating from '../StarRating';
 import { Heart, ShoppingCart } from 'lucide-react';
+import useAxios from '@/app/hooks/useAxios';
+import { showAlert } from '@/app/utils/alert';
+import { useAddToCart } from '@/app/hooks/useAddToCart';
 
 export default function ProductCard({ data, title }) {
+  const { addToCart, isPending } = useAddToCart();
+  const handleAddToCart = productId => {
+    addToCart(productId);
+  };
   return (
     <section className="px-6 mt-5 lg:mt-10 mb-5">
       <h3 className="text-2xl lg:text-3xl font-bold ">{title}</h3>
@@ -20,6 +27,7 @@ export default function ProductCard({ data, title }) {
               </p>
               <div className="ml-auto flex space-x-3">
                 <ShoppingCart
+                  onClick={() => handleAddToCart(product.id)}
                   className="cursor-pointer hover:fill-accent"
                   fill="gray"
                   strokeWidth={0}

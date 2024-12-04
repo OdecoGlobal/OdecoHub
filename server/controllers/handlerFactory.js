@@ -2,11 +2,16 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const APIFeatures = require('./../utils/apiFeatures');
 
-exports.getAll = Model =>
+exports.getAll = (Model, filterByUser = false) =>
   catchAsync(async (req, res, next) => {
     // Hack to allow nested GET route on reviews
     let filter = {};
     // if (req.params.tourId) filter = { tour: req.params.tourId };
+
+    if (filterByUser && req.user) {
+      filter = { user: req.user.id };
+    }
+
     // EXECUTING THE QUERY
     const features = new APIFeatures(Model.find(filter), req.query)
       .filter()

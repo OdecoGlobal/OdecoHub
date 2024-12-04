@@ -149,13 +149,15 @@ export default function Navbar() {
           height={20}
           alt="searchIcon"
         />
-        <Image
-          className="cursor-pointer"
-          src={cartIcon}
-          alt="add to cart"
-          width={20}
-          height={20}
-        />
+        <Link href="/cart">
+          <Image
+            className="cursor-pointer"
+            src={cartIcon}
+            alt="add to cart"
+            width={20}
+            height={20}
+          />
+        </Link>
         <div className="relative w-fit" onClick={() => setDrop(!drop)}>
           {drop && (
             <div className="absolute text-slate-100  w-56 h-52 top-9 right-0  bg-[url('../app/assets/backdrop.png')]">

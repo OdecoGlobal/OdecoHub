@@ -3,7 +3,7 @@ const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 
-exports.getAllCart = factory.getAll(Cart);
+exports.getAllCart = factory.getAll(Cart, true);
 
 exports.createCart = catchAsync(async (req, res, next) => {
   if (!req.body.user) req.body.user = req.user.id;

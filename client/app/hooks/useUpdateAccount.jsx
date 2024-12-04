@@ -20,7 +20,6 @@ export function useUpdateAccount() {
 
       const res = await axiosInstance.patch(url, data);
       if (res.data.status === 'success') {
-        console.log(res.data.data.user);
         Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 });
 
         dispatch({ type: 'UPDATED', payload: res.data.data.user });
