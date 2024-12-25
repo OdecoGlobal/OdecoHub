@@ -1,18 +1,14 @@
-'use client';
-import useAxios from '@/app/hooks/useAxios';
 import ProductCard from './ProductCard';
-import { useEffect } from 'react';
+import { axiosInstance } from '@/app/utils/axios';
 
-export default function Explore() {
-  const { data, isPending, error, fetchData } = useAxios('/products');
+export default async function Explore() {
+  const explore = await axiosInstance('/products');
+  const data = explore.data.data.data;
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   const exploreData = data && data.slice(2, 6);
   return (
     <div>
-      {data && <ProductCard title="Explore Our Products" data={exploreData} />}{' '}
+      {data && <ProductCard title="Explore Our Products" data={exploreData} />}
     </div>
   );
 }

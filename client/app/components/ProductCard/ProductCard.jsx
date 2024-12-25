@@ -3,8 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import StarRating from '../StarRating';
 import { Heart, ShoppingCart } from 'lucide-react';
-import useAxios from '@/app/hooks/useAxios';
-import { showAlert } from '@/app/utils/alert';
 import { useAddToCart } from '@/app/hooks/useAddToCart';
 
 export default function ProductCard({ data, title }) {
@@ -15,7 +13,7 @@ export default function ProductCard({ data, title }) {
   return (
     <section className="px-6 mt-5 lg:mt-10 mb-5">
       <h3 className="text-2xl lg:text-3xl font-bold ">{title}</h3>
-      <div className="mt-5 grid grid-cols-2 lg:grid-cols-4 gap-9 auto-rows-auto">
+      <div className="mt-5 grid grid-cols-1 lg:grid-cols-4 gap-9 auto-rows-auto">
         {data.map(product => (
           <div
             key={product.id}

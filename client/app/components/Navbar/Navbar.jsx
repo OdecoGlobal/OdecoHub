@@ -105,9 +105,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      <h1 className="text-black font-sans font-extrabold text-xl lg:text-3xl ">
+      <Link
+        href="/"
+        className="text-black font-sans font-extrabold text-xl lg:text-3xl "
+      >
         ODECOHUB
-      </h1>
+      </Link>
 
       {/* DESKTOP NAV */}
 
@@ -160,59 +163,65 @@ export default function Navbar() {
         </Link>
         <div className="relative w-fit" onClick={() => setDrop(!drop)}>
           {drop && (
-            <div className="absolute text-slate-100  w-56 h-52 top-9 right-0  bg-[url('../app/assets/backdrop.png')]">
-              <div className="flex flex-col h-full w-full justify-evenly px-2">
-                <div className="nav--drop ">
-                  <Image
-                    src={userIconDrop}
-                    width={25}
-                    height={25}
-                    alt="User Icon"
-                  />
-                  <Link href="/account">Manage My Account</Link>
-                </div>
-                <div className="nav--drop ">
-                  <Image
-                    src={orderIcon}
-                    width={25}
-                    height={25}
-                    alt="Order Icon"
-                  />
-                  <Link href="/orders">My Orders</Link>
-                </div>
-                <div className="nav--drop">
-                  <Image
-                    src={reviewIcon}
-                    width={25}
-                    height={25}
-                    alt="Review Icon"
-                  />
-                  <Link href="/user-reviews">My Reviews</Link>{' '}
-                </div>
-                {user && (
-                  <div className="nav--drop">
+            <>
+              <div
+                className={` fixed inset-0 bg-black bg-opacity-50 z-10`}
+                onClick={() => setDrop(false)}
+              />
+              <div className="absolute text-slate-100  w-56 h-52 top-9 right-0  bg-[url('../app/assets/backdrop.png')] z-20">
+                <div className="flex flex-col h-full w-full justify-evenly px-2">
+                  <div className="nav--drop ">
                     <Image
-                      src={logoutIcon}
+                      src={userIconDrop}
                       width={25}
                       height={25}
-                      alt="Logout Icon"
+                      alt="User Icon"
                     />
-                    <button onClick={logout}>Logout</button>
+                    <Link href="/account">Manage My Account</Link>
                   </div>
-                )}
-                {!user && (
-                  <div className="nav--drop">
+                  <div className="nav--drop ">
                     <Image
-                      src={loginIcon}
+                      src={orderIcon}
                       width={25}
                       height={25}
-                      alt="Login Icon"
+                      alt="Order Icon"
                     />
-                    <Link href="/login">Login</Link>
+                    <Link href="/orders">My Orders</Link>
                   </div>
-                )}
+                  <div className="nav--drop">
+                    <Image
+                      src={reviewIcon}
+                      width={25}
+                      height={25}
+                      alt="Review Icon"
+                    />
+                    <Link href="/user-reviews">My Reviews</Link>{' '}
+                  </div>
+                  {user && (
+                    <div className="nav--drop">
+                      <Image
+                        src={logoutIcon}
+                        width={25}
+                        height={25}
+                        alt="Logout Icon"
+                      />
+                      <button onClick={logout}>Logout</button>
+                    </div>
+                  )}
+                  {!user && (
+                    <div className="nav--drop">
+                      <Image
+                        src={loginIcon}
+                        width={25}
+                        height={25}
+                        alt="Login Icon"
+                      />
+                      <Link href="/login">Login</Link>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
+            </>
           )}
           {user && (
             <Image

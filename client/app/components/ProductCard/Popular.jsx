@@ -1,16 +1,10 @@
-'use client';
-import React, { useEffect } from 'react';
-import useAxios from '@/app/hooks/useAxios';
 import ProductCard from './ProductCard';
+import { axiosInstance } from '@/app/utils/axios';
 
-export default function Popular() {
-  const { data, isPending, error, fetchData } = useAxios(
-    '/products/popular-products'
-  );
+export default async function Popular() {
+  const products = await axiosInstance('/products/popular-products');
+  const data = products.data.data.data;
 
-  useEffect(() => {
-    fetchData();
-  }, []);
   const popularProduct = data && data.slice(0, 4);
   return (
     <div>
