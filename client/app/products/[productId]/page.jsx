@@ -5,14 +5,21 @@ import StarRating from '@/app/components/StarRating';
 import { Minus, Plus } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { notFound } from 'next/navigation';
 
 export default function ProductDetails({ params: { productId } }) {
   const [activeImage, setActiveImage] = useState('');
   const [quantity, setQuantity] = useState(1);
 
   const fetcher = async url => {
-    const response = await axiosInstance.get(url);
-    return response.data.data.data;
+    try {
+      const response = await axiosInstance.get(url);
+      return response.data.data.data;
+    } catch (err) {
+      console.log(err.status);
+      if (err.status === 400) notFound();
+      throw err;
+    }
   };
 
   const { data: product } = useSWR(`/products/${productId}`, fetcher, {

@@ -6,6 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Account() {
   const { user } = useAuthContext();
+  if (!user) throw new Error('You need to be logged in to access this page.');
 
   const [name, setName] = useState(user.name);
   const [userName, setUserName] = useState(user.userName);

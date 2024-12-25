@@ -11,7 +11,8 @@ export default function Cart() {
   const FREE_SHIPPING_THRESHOLD = 4000;
   const SHIPPING_FEE = 10;
   const { user } = useAuthContext();
-  const { data: cartData, isPending, error, fetchData } = useAxios('/carts');
+  if (!user) throw new Error('You need to be logged in to access this page.');
+  const { data: cartData, fetchData } = useAxios('/carts');
   const { isPending: isUpdating, fetchData: updateFetchData } = useAxios(
     '/carts',
     'PATCH'
