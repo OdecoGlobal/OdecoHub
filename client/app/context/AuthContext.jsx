@@ -55,7 +55,7 @@ export function AuthStatus({ children }) {
     } else {
       dispatch({ type: 'AUTH_IS_READY', payload: null });
     }
-  }, []);
+  }, [dispatch, user]);
   return (
     <>
       {!authIsReady && (
@@ -78,11 +78,10 @@ export function RouteGuard({ children }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  const authRoutes = ['/login', '/signup', '/forgotPassword'];
-  // List of routes that require authentication
-  const protectedRoutes = ['/dashboard', '/profile', '/settings'];
-
   useEffect(() => {
+    const authRoutes = ['/login', '/signup', '/forgotPassword'];
+    // List of routes that require authentication
+    const protectedRoutes = ['/dashboard', '/profile', '/settings'];
     if (user && authRoutes.includes(pathname)) {
       router.push('/');
       return;

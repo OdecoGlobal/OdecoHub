@@ -40,6 +40,7 @@ export default function ProductDetails({ params: { productId } }) {
           <div className="col-span-1 lg-order-1 flex lg:flex-col h-full justify-evenly">
             {data.images.map((img, i) => (
               <Image
+                key={i}
                 className={`object-cover  ${
                   activeImage === img
                     ? 'border-2 border-red-600 opacity-70'

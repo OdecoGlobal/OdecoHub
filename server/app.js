@@ -8,6 +8,7 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 // app.use(require('express-blocks'));
 
 const AppError = require('./utils/appError');
@@ -25,6 +26,10 @@ app.use(
     credentials: true,
   })
 );
+// app.enable('trust proxy');
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 // GLOAL MIDDLE WARE
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,10 +50,13 @@ app.use(mongoSanitize());
 
 // Data sanitization against XSS
 app.use(xss());
+
+// COMPRESSION
+app.use(compression());
+
 // ADDING TIME TO THE REQ OBJECT
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  // console.log(req.cookies);
   next();
 });
 
