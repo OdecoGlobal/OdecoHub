@@ -3,19 +3,17 @@ const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
 
-exports.getAllCart = factory.getAll(Cart, true);
+exports.getAllCart = factory.getAll(Cart);
 
 exports.createCart = catchAsync(async (req, res, next) => {
-  if (!req.body.user) req.body.user = req.user.id;
+  // if (!req.body.user) req.body.user = req.user.id;
 
   if (!req.body.product) {
     return next(new AppError('Product Id is required', 400));
   }
 
   // Check if product is alreay in user cart
-
   const existingCart = await Cart.findOne({
-    user: req.body.user,
     product: req.body.product,
   });
 

@@ -2,11 +2,6 @@ const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema(
   {
-    user: {
-      type: mongoose.Schema.ObjectId,
-      ref: 'User',
-      required: [true, 'Cart must belong to a user'],
-    },
     product: {
       type: mongoose.Schema.ObjectId,
       ref: 'Product',
@@ -22,7 +17,7 @@ const cartSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-cartSchema.index({ user: 1, product: 1 });
+cartSchema.index({ product: 1 });
 
 cartSchema.pre(/^find/, function (next) {
   this.populate({

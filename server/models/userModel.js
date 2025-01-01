@@ -21,6 +21,10 @@ const userSchema = new mongoose.Schema({
     trim: true,
     validate: [validator.isEmail, 'Provide a valid email'],
   },
+  cart: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Cart',
+  },
   role: {
     type: String,
     enum: ['user', 'seller', 'admin'],
