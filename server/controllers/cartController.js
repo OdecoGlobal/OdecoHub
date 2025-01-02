@@ -1,4 +1,5 @@
 const Cart = require('../models/cartModel');
+const User = require('../models/userModel');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 const factory = require('./handlerFactory');
@@ -6,27 +7,33 @@ const factory = require('./handlerFactory');
 exports.getAllCart = factory.getAll(Cart);
 
 exports.createCart = catchAsync(async (req, res, next) => {
-  // if (!req.body.user) req.body.user = req.user.id;
+  const user = req.user._id;
 
-  if (!req.body.product) {
+  const { product, quantity = 1 } = req.body;
+  if (!product) {
     return next(new AppError('Product Id is required', 400));
   }
 
-  // Check if product is alreay in user cart
   const existingCart = await Cart.findOne({
-    product: req.body.product,
+    product,
+    user,
   });
 
   if (existingCart) {
-    // Update Product quantity by one
-    existingCart.quantity += req.body.quantity || 1;
+    existingCart.quantity += 1;
+    await existingCart.save();
     return res.status(200).json({
       status: 'success',
       data: { cart: existingCart },
     });
   }
 
-  const newCart = await Cart.create(req.body);
+  const newCart = await Cart.create({
+    user,
+    product,
+    quantity,
+  });
+
   res.status(201).json({
     status: 'success',
     data: { cart: newCart },

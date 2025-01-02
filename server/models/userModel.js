@@ -3,63 +3,89 @@ const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
-const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please enter your name'],
-  },
-  userName: {
-    type: String,
-    unique: [true, 'User name already exists; Please enter another username'],
-    required: [true, 'Please enter a username'],
-  },
-  email: {
-    type: String,
-    required: [true, 'Enter your email address'],
-    unique: true,
-    lowercase: true,
-    trim: true,
-    validate: [validator.isEmail, 'Provide a valid email'],
-  },
-  cart: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Cart',
-  },
-  role: {
-    type: String,
-    enum: ['user', 'seller', 'admin'],
-    default: 'user',
-  },
-  photo: {
-    type: String,
-    default:
-      'https://res.cloudinary.com/dd0is7qa0/image/upload/v1730873970/users/default.jpg',
-  },
-  password: {
-    type: String,
-    required: [true, 'Provide a password'],
-    minlength: 8,
-    select: false,
-  },
-  passwordConfirm: {
-    type: String,
-    required: [true, 'Confirm your password'],
-    validate: {
-      // Works only a save or create()
-      validator: function (el) {
-        return el === this.password;
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, 'Please enter your name'],
+    },
+    userName: {
+      type: String,
+      unique: [true, 'User name already exists; Please enter another username'],
+      required: [true, 'Please enter a username'],
+    },
+    email: {
+      type: String,
+      required: [true, 'Enter your email address'],
+      unique: true,
+      lowercase: true,
+      trim: true,
+      validate: [validator.isEmail, 'Provide a valid email'],
+    },
+
+    role: {
+      type: String,
+      enum: ['user', 'seller', 'admin'],
+      default: 'user',
+    },
+
+    photo: {
+      type: String,
+      default:
+        'https://res.cloudinary.com/dd0is7qa0/image/upload/v1730873970/users/default.jpg',
+    },
+    password: {
+      type: String,
+      required: [true, 'Provide a password'],
+      minlength: 8,
+      select: false,
+    },
+    passwordConfirm: {
+      type: String,
+      required: [true, 'Confirm your password'],
+      validate: {
+        // Works only a save or create()
+        validator: function (el) {
+          return el === this.password;
+        },
+        message: 'Passwords are not the same',
       },
-      message: 'Passwords are not the same',
+    },
+
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    active: {
+      type: Boolean,
+      default: true,
+      select: false,
     },
   },
-  passwordChangedAt: Date,
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  active: {
-    type: Boolean,
-    default: true,
-    select: false,
-  },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  }
+);
+
+// Virtual Populate
+userSchema.virtual('cart', {
+  ref: 'Cart',
+  foreignField: 'user',
+  localField: '_id',
+});
+userSchema.pre('save', function (next) {
+  if (this.role !== 'user') {
+    this.cart = undefined; // Remove the cart field for non-user roles
+  }
+  next();
+});
+
+// Dynamically exclude cart field during query operations
+userSchema.pre(/^find/, function (next) {
+  if (this.getQuery().role !== 'user') {
+    this.select('-cart'); // Exclude the cart field for non-user roles
+  }
+  next();
 });
 
 // Hashing Password using Bcrypt
@@ -85,14 +111,6 @@ userSchema.pre(/^find/, function (next) {
   this.find({ active: { $ne: false } });
   next();
 });
-
-// Creating an instance method for checking password
-// userSchema.methods.correctPassword = async function (
-//   candidatePassword,
-//   userPassword
-// ) {
-//   return await bcrypt.compare(candidatePassword, userPassword);
-// };
 
 userSchema.methods.verifyPassword = async function (
   loginPassword,

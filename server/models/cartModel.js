@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 const cartSchema = new mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, 'Cart must belong to a user'],
+    },
     product: {
       type: mongoose.Schema.ObjectId,
       ref: 'Product',
@@ -14,15 +19,19 @@ const cartSchema = new mongoose.Schema(
       default: 1,
     },
   },
-  { timestamps: true }
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+    // timestamps: true,
+  }
 );
 
-cartSchema.index({ product: 1 });
+// cartSchema.index({ product: 1 });
 
 cartSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'product',
-    select: 'id seller name imageCover price stock priceDiscount',
+    select: 'id name imageCover price stock priceDiscount',
   });
   next();
 });
